@@ -49,7 +49,7 @@ class static_pimpl //: traits::move_control<traits::is_movable_v<T>>, traits::co
 {
 public:
     template <class... Args>
-    explicit static_pimpl(Args... args) noexcept {
+    explicit static_pimpl(Args&&... args) noexcept {
         new (&m_storage) T(std::forward<Args>(args)...);
     }
     
